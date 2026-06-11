@@ -14,20 +14,14 @@ html = """
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Readable Library</title>
-<style>
-body{font-family:Arial,sans-serif;background:#f5f5f5;margin:20px}
-.card{background:white;border-radius:10px;padding:16px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.15)}
-h2{margin:0 0 8px 0}
-.meta{color:#555;font-size:14px;margin-bottom:8px}
-details{margin-top:8px}
-.abstract{line-height:1.5}
-.authors{font-weight:bold}
-</style>
-</head><body>
-<h1>Library References</h1>
-<p>Total records: %d</p>
+    <meta charset="utf-8">
+    <title>Readable Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button onclick="toggleTheme()">🌙 Dark Mode</button>
+    <h1>Library References</h1>
+    <p>Total records: %d</p>
 """ % len(records)
 
 for rec in records:
@@ -69,7 +63,15 @@ for rec in records:
 
     html += "</div>"
 
-html += "</body></html>"
+js = """
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("dark");
+    }
+</script>
+"""
+
+html += "</body>" + js + "</html>"
 
 Path(html_path).write_text(html, encoding="utf-8")
 
