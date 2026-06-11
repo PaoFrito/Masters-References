@@ -2,8 +2,8 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from html import escape
 
-xml_path = "./references.xml"
-html_path = "./references.html"
+xml_path = "./library.xml"
+html_path = "./site/ref.html"
 
 tree = ET.parse(xml_path)
 root = tree.getroot()
